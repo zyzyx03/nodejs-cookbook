@@ -1,4 +1,4 @@
-# Buffer and Stream
+# Buffer And Stream
 
 Think of a **buffer** as a temporary storage box for data, like a basket. You put things (data) in the basket (buffer) so you can carry them around or work with them.
 
@@ -18,4 +18,9 @@ readStream.on('data', (chunk) => {
   writeStream.write('\nNEW CHUNK\n')
   writeStream.write(chunk)
 })
+```
+
+```js
+// Shorter version
+readStream.pipe(writeStream)
 ```
