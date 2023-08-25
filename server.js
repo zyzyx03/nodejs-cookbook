@@ -17,10 +17,11 @@ const server = http.createServer((req ,res) => {
      break
     default:
       path += '404.html'
+      break
   }
 
   // send an html file
-  fs.readFile('path', (err, data)=>{
+  fs.readFile(path, (err, data)=>{
     if(err){
       console.log(err)
       res.end
