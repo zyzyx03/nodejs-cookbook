@@ -1,58 +1,27 @@
-# Basic Routing 
-
+# Beginning Express
 ```js
-const http = require('http')
-const fs = require('fs')
-const _ = require('lodash')
+const express = require('express')
 
-const server = http.createServer((req ,res) => {
-  // lodash
-  const num = _.random(0,20)
-  console.log(num)
+const app = express()
 
-  const greet = _.once(() => {
-    console.log('Hello')
-  })
-
-  greet()
-  greet()
-
-  // set header content type
-  res.setHeader('Content-Type', 'text/html')
-
-  let path = './views/'
-  switch(req.url){
-    case '/':
-      path += 'index.html'
-      res.statusCode = 200
-      break
-    case '/about':
-      path += 'about.html'
-      res.statusCode = 200
-     break
-    case '/about-me':
-      res.statusCode = 301
-      res.setHeader('Location', '/about')
-      res.end()
-     break
-    default:
-      res.statusCode = 400
-      path += '404.html'
-  }
-
-  // send an html file
-  fs.readFile(path, (err, data)=>{
-    if(err){
-      console.log(err)
-      res.end
-    }else{
-      // res.write(data)
-      res.end(data)
-    }
-  })
+app.get('/', (req,res) => {
+    res.sendFile('./views/index.html', { root: __dirname})
+})
+app.get('/about', (req,res) => {
+    res.sendFile('./views/about.html', { root: __dirname})
 })
 
-server.listen(3000, 'localhost', () => {
-  console.log('Listening for request on port 3000')
+// Redirect
+app.get('/about-us', (req,res) => {
+  res.redirect('/about')
 })
+
+// 404 page
+app.use((req,res) => {
+  res.status(404).sendFile('./views/404.html', { root: __dirname})
+})
+
+
+const port = 3000
+app.listen(port)
 ```
