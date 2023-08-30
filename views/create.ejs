@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <title>Belog | <%= title  %></title>
+</head>
+<style>
+  .about-us{
+    text-align: center;
+  }
+</style>
+<body class="container">
+  <nav>
+    <ul>
+      <li><strong>Belog</strong></li>
+    </ul>
+    <ul>
+      <li><a href="/">Blogs</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blogs/create">New Blog</a></li>
+    </ul>
+  </nav>
+    <article>
+      <form>
+          <!-- Markup example 1: input is inside label -->
+          <label for="title">
+            Title:
+            <input type="text" id="title" placeholder="Belog title" required>
+          </label>
+      
+          <label for="snippet">
+            Snippet:
+            <input type="text" id="snippet" placeholder="Your snippet" required>
+          </label>
+
+          <label for="body">
+            Blog body:
+            <textarea id="body" cols="30" rows="10" placeholder="Your belog"></textarea>
+          </label>
+      </form>
+      <input type="submit">
+
+    </article>
+
+</body>
+</html>
