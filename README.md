@@ -1,4 +1,4 @@
-<img src="./images/nodejs-dark.png" width="1200" height="300">
+<img src="./images/nodejs-dark.png" width="1200" height="400">
 
 
 # NodeJs Cookbook 
