@@ -1,17 +1,11 @@
 const express = require('express')
+const morgan = require('morgan')
 
 const app = express()
 
 app.set('view engine', 'ejs')
 
-app.use((req,res, next) =>{
-  console.log('new request made:')
-  console.log('host:', req.hostname)
-  console.log('path:', req.path)
-  console.log('method', req.method)
-  next()
-})
-
+app.use(morgan('dev'))
 
 app.get('/', (req,res) => {
   const  blogs = [
@@ -22,11 +16,6 @@ app.get('/', (req,res) => {
   res.render('index', {title: 'Home', blogs})
 })
 
-// Just to prove a point, this handle will not show in console
-app.use((req,res, next) =>{
-  console.log('in the next middleware')
-  next()
-})
 
 app.get('/about', (req,res) => {
   res.render('about', {title: 'About'})
