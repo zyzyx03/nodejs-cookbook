@@ -12,10 +12,6 @@ app.use((req,res, next) =>{
   next()
 })
 
-app.use((req,res, next) =>{
-  console.log('in the next middleware')
-  next()
-})
 
 app.get('/', (req,res) => {
   const  blogs = [
@@ -26,6 +22,11 @@ app.get('/', (req,res) => {
   res.render('index', {title: 'Home', blogs})
 })
 
+// Just to prove a point, this handle will not show in console
+app.use((req,res, next) =>{
+  console.log('in the next middleware')
+  next()
+})
 
 app.get('/about', (req,res) => {
   res.render('about', {title: 'About'})
