@@ -5,7 +5,12 @@ const app = express()
 app.set('view engine', 'ejs')
 
 app.get('/', (req,res) => {
-    res.render('index', {title: 'Home'})
+  const  blogs = [
+    {title:  "belog1", snippet: 'lorem belog01 sit amet'},
+    {title:  "belog2", snippet: 'lorem belog02 sit amet'},
+    {title:  "belog3", snippet: 'lorem belog03 sit amet'}
+  ]
+  res.render('index', {title: 'Home', blogs})
 })
 
 
