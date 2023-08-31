@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <title>Belog | <%= title  %></title>
-</head>
+  <%- include('./partials/head.ejs')%>
+
 <style>
   .about-us{
     text-align: center;
   }
 </style>
+
 <body class="container">
-  <nav>
-    <ul>
-      <li><strong>Belog</strong></li>
-    </ul>
-    <ul>
-      <li><a href="/">Blogs</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/blogs/create">New Blog</a></li>
-    </ul>
-  </nav>
+  
+  <%- include('./partials/nav.ejs') %>
+
     <article>
       <form>
           <!-- Markup example 1: input is inside label -->
@@ -43,6 +33,9 @@
       <input type="submit">
 
     </article>
+
+    <%- include('./partials/footer.ejs') %>
+
 
 </body>
 </html>
