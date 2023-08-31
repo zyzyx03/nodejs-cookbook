@@ -4,34 +4,33 @@ const express = require('express')
 
 const app = express()
 
-// register view engine
-
-app.set('view-engine', 'ejs')
+app.set('view engine', 'ejs')
 
 app.get('/', (req,res) => {
-  cons  blogs = [
+  const  blogs = [
     {title:  "belog1", snippet: 'lorem belog01 sit amet'},
     {title:  "belog2", snippet: 'lorem belog02 sit amet'},
     {title:  "belog3", snippet: 'lorem belog03 sit amet'}
   ]
-    res.sendFile('./views/index.html', { root: __dirname})
+  res.render('index', {title: 'Home', blogs})
 })
+
 
 app.get('/about', (req,res) => {
-    res.sendFile('./views/about.html', { root: __dirname})
+  res.render('about', {title: 'About'})
 })
 
-// Redirect
-app.get('/about-us', (req,res) => {
-  res.redirect('/about')
+app.get('/blogs/create', (req,res) =>{
+  res.render('create', {title: 'Create'})
 })
 
-// 404 page
 app.use((req,res) => {
-  res.status(404).sendFile('./views/404.html', { root: __dirname})
+  res.status(404).render('404', {title: '404'})
 })
-
 
 const port = 3000
 app.listen(port)
+
+
+
 ```
