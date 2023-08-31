@@ -1,11 +1,17 @@
 const express = require('express')
 const morgan = require('morgan')
 
+// Express app
 const app = express()
 
+// Register view engine
 app.set('view engine', 'ejs')
 
+// Use middleware logger
 app.use(morgan('dev'))
+
+// middleware & static files
+app.use(express.static('public/css'))
 
 app.get('/', (req,res) => {
   const  blogs = [
