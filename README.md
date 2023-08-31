@@ -1,4 +1,4 @@
-# Declare Variables not War
+# Declare Variable Not War
 
 ```js
 // const firstName = 'yoshi'
