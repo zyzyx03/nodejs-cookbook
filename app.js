@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.use(morgan('dev'))
 
 // middleware & static files
-app.use(express.static('public/css'))
+app.use(express.static('public'))
 
 app.get('/', (req,res) => {
   const  blogs = [
